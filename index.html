@@ -151,6 +151,10 @@
     .project-metric { display: inline-flex; align-items: center; gap: .4rem; background: rgba(63,185,80,.08); border: 1px solid rgba(63,185,80,.18); border-radius: 6px; padding: .3rem .7rem; font-family: var(--mono); font-size: .75rem; color: var(--green); font-weight: 600; margin-bottom: 1rem; }
     .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
     .tag { font-family: var(--mono); font-size: .7rem; padding: .2rem .55rem; border-radius: 4px; background: var(--bg3); border: 1px solid var(--border2); color: var(--muted); }
+    .tag-deploy { font-family: var(--mono); font-size: .7rem; padding: .2rem .55rem; border-radius: 4px; background: rgba(63,185,80,.1); border: 1px solid rgba(63,185,80,.25); color: var(--green); }
+    .project-link-api { display: inline-flex; align-items: center; gap: .3rem; padding: .2rem .7rem; border-radius: 5px; background: rgba(63,185,80,.1); border: 1px solid rgba(63,185,80,.25); color: var(--green); text-decoration: none; font-family: var(--mono); font-size: .68rem; font-weight: 600; transition: all .2s; letter-spacing: .03em; }
+    .project-link-api:hover { background: rgba(63,185,80,.2); border-color: var(--green); transform: translateY(-1px); }
+    .project-link-api::before { content: "●"; font-size: .5rem; animation: pulse 2s infinite; }
 
     /* EDUCATION */
     #education { background: var(--bg2); border-top: 1px solid var(--border2); border-bottom: 1px solid var(--border2); }
@@ -373,11 +377,31 @@
           </div>
         </div>
         <h3 class="project-title">Previsão de Preços de Aluguel em São Paulo</h3>
-        <p class="project-desc">Pipeline completo de ML para estimar o valor de aluguel de apartamentos. Comparação entre Regressão Linear, Decision Tree e Random Forest com validação cruzada e otimização via GridSearchCV.</p>
-        <div class="project-metric">RMSE final: R$ 1.698</div>
+        <p class="project-desc">Pipeline completo de ML para estimar o valor de aluguel de apartamentos. Comparação entre Regressão Linear, Decision Tree e Random Forest com GridSearchCV. Modelo servido via API REST com FastAPI e Docker em produção.</p>
+        <div class="project-metric">R² 0.797 · MAE R$ 577</div>
         <div class="project-tags">
-          <span class="tag">Random Forest</span><span class="tag">GridSearchCV</span><span class="tag">Cross Validation</span><span class="tag">RMSE · MAE</span><span class="tag">Scikit-learn</span>
+          <span class="tag">Random Forest</span><span class="tag">GridSearchCV</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag-deploy">API Live</span>
         </div>
+        <a class="project-link-api" href="https://api-aluguel-sp.onrender.com/app" target="_blank">API em produção →</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <img class="project-img" src="https://raw.githubusercontent.com/Anderson1999DC/Analise_de_credito_em_dados_do_LendingClub/main/assets/curva_roc.png" alt="Curva ROC Crédito" onerror="this.style.display='none'"/>
+      <div class="project-body">
+        <div class="project-header">
+          <span class="project-type type-ml">Classificação</span>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/Anderson1999DC/Analise_de_credito_em_dados_do_LendingClub" target="_blank" title="GitHub">&#10697;</a>
+          </div>
+        </div>
+        <h3 class="project-title">Análise de Crédito — LendingClub</h3>
+        <p class="project-desc">Modelo Random Forest com class_weight balanced para prever inadimplência em 9.578 empréstimos. Dataset desbalanceado (85%/15%) tratado corretamente. Avaliação por ROC-AUC. Modelo em produção via API REST.</p>
+        <div class="project-metric">ROC-AUC otimizado · class_weight balanced</div>
+        <div class="project-tags">
+          <span class="tag">Random Forest</span><span class="tag">ROC-AUC</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag-deploy">API Live</span>
+        </div>
+        <a class="project-link-api" href="https://api-credito-lendingclub.onrender.com/app" target="_blank">API em produção →</a>
       </div>
     </div>
 
@@ -391,11 +415,12 @@
           </div>
         </div>
         <h3 class="project-title">Análise de Produtos de Verão na Wish</h3>
-        <p class="project-desc">EDA + Random Forest + SHAP Values para identificar os fatores que determinam o sucesso de produtos em marketplace. Insights sobre precificação, reputação e estratégias de visibilidade.</p>
-        <div class="project-metric">Acurácia: 75% · SHAP aplicado</div>
+        <p class="project-desc">EDA + Random Forest + SHAP Values para identificar os fatores que determinam o sucesso de produtos em marketplace. Insights sobre precificação, reputação e visibilidade. Modelo em produção via API REST.</p>
+        <div class="project-metric">ROC-AUC otimizado · SHAP aplicado</div>
         <div class="project-tags">
-          <span class="tag">Random Forest</span><span class="tag">SHAP</span><span class="tag">WordCloud</span><span class="tag">EDA</span><span class="tag">GridSearchCV</span>
+          <span class="tag">Random Forest</span><span class="tag">SHAP</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag-deploy">API Live</span>
         </div>
+        <a class="project-link-api" href="https://api-wish-ml.onrender.com/app" target="_blank">API em produção →</a>
       </div>
     </div>
 
@@ -409,11 +434,12 @@
           </div>
         </div>
         <h3 class="project-title">Predição de Cliques em Anúncios</h3>
-        <p class="project-desc">Modelo de classificação binária para prever se um usuário clicará em um anúncio online com base em dados comportamentais e demográficos. Aplicação direta em segmentação de marketing digital.</p>
-        <div class="project-metric">Acurácia: 90% · Precision: 0.95</div>
+        <p class="project-desc">Modelo de classificação binária para prever se um usuário clicará em um anúncio online com base em dados comportamentais e demográficos. ROC-AUC elevado. Modelo em produção via API REST com FastAPI e Docker.</p>
+        <div class="project-metric">Acurácia: ~90% · ROC-AUC alto</div>
         <div class="project-tags">
-          <span class="tag">Regressão Logística</span><span class="tag">Classificação</span><span class="tag">F1-score</span><span class="tag">Seaborn</span>
+          <span class="tag">Regressão Logística</span><span class="tag">ROC-AUC</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag-deploy">API Live</span>
         </div>
+        <a class="project-link-api" href="https://api-predicao-clique.onrender.com/app" target="_blank">API em produção →</a>
       </div>
     </div>
 
@@ -427,11 +453,12 @@
           </div>
         </div>
         <h3 class="project-title">Regressão Linear em E-commerce</h3>
-        <p class="project-desc">Análise dos fatores que impactam o faturamento de clientes em e-commerce. O modelo revelou que o app tem impacto 203x maior que o website no valor gasto orientando decisões estratégicas de produto.</p>
+        <p class="project-desc">Análise dos fatores que impactam o faturamento de clientes em e-commerce. Modelo revelou que o app tem impacto 203x maior que o website, orientando decisões estratégicas. Modelo em produção via API REST.</p>
         <div class="project-metric">RMSE: $8.93 · App 203× &gt; Website</div>
         <div class="project-tags">
-          <span class="tag">Regressão Linear</span><span class="tag">Coeficientes</span><span class="tag">Resíduos</span><span class="tag">Seaborn</span>
+          <span class="tag">Regressão Linear</span><span class="tag">Coeficientes</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag-deploy">API Live</span>
         </div>
+        <a class="project-link-api" href="https://api-ecommerce-ml.onrender.com/app" target="_blank">API em produção →</a>
       </div>
     </div>
 
@@ -512,7 +539,7 @@
     </div>
     <p>Estou aberto a oportunidades de estágio e posições Jr em Ciência de Dados.</p>
     <div class="contact-cards">
-      <a class="contact-card" href="mailto:andersoncojr@gmail.com">
+      <a class="contact-card" href="/cdn-cgi/l/email-protection#31505f555443425e5f525e5b4371565c50585d1f525e5c">
         <span class="contact-card-icon">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Gmail" style="width: 24px; height: 24px;">
         </span>
@@ -566,7 +593,7 @@
   <p><span>Anderson Coelho</span> · Rio de Janeiro — RJ</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const roles = ['Cientista de Dados','Python Developer','Machine Learning Engineer','Data Analyst'];
   let ri=0,ci=0,deleting=false;
   const el=document.getElementById('typed-role');
@@ -591,10 +618,4 @@
       try{
         const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
         if(res.ok){form.style.display='none';success.classList.add('visible');}
-        else{btn.textContent='Erro ao enviar. Tente novamente.';btn.disabled=false;}
-      }catch(err){btn.textContent='Erro ao enviar. Tente novamente.';btn.disabled=false;}
-    });
-  }
-</script>
-</body>
-</html>
+        else{btn.textContent='Erro ao enviar. Tente novament
